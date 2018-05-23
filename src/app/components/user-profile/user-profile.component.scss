@@ -1,0 +1,26 @@
+.userContainer{
+    width: 100%;
+    margin-top: 5%;
+    margin-left:30%;
+    margin-right:auto;
+}
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+//remove the arrow in chrome
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+//remove the arrow in firefox 
+input[type="number"]{-moz-appearance:textfield;}

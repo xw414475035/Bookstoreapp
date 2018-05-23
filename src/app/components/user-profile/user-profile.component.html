@@ -1,0 +1,74 @@
+<div class="userContainer">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+      <div class="panel panel-info">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center">
+              <img alt="User Pic" width="80px" height="80px" src="{{auth.userProfile.picture}}" class="rounded-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody *ngIf="display">
+                  <tr>
+                    <td>Name</td>
+                    <td>
+                      {{auth.userProfile.name}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <a href="mailto:{{auth.userProfile.email}}">{{auth.userProfile.email}}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>
+                      {{auth.userProfile.phone}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>
+                        {{auth.userProfile.address}}
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody *ngIf="!display">
+                  <tr>
+                    <td>Name</td>
+                    <td>
+                      <input id="js_name" type="text" value="{{auth.userProfile.name}}">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>
+                      <a href="{{auth.userProfile.email}}">{{auth.userProfile.email}}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>
+                      <input id="js_phone" type="number" value="{{auth.userProfile.phone}}">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>
+                      <input id="js_address" type="text" value="{{auth.userProfile.address}}">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div id="buttondiv">
+                <button *ngIf="display" (click)="ChangeUSerPro()" class="btn btn-primary">Change My Profile</button>
+                <button *ngIf="!display" (click)="SaveUserPro()" class="btn btn-primary">Save My Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

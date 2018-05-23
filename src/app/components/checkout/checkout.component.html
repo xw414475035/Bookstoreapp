@@ -1,0 +1,95 @@
+<div class="cart-page-container">
+    <div class="cart-page-header">
+        <h1>Shopping Cart</h1>
+    </div>
+    <div class="cart-page-content" *ngIf="cartList.length > 0">
+        <div class="cart-item-header cart-item-row">
+            <div class="cart-item-cell cart-item-product">
+                <span>Product</span>
+            </div>
+            <div class="cart-item-cell cart-item-quantity">
+                <span>Quantity</span>
+            </div>
+            <div class="cart-item-cell cart-item-total">
+                <span>Total</span>
+            </div>
+            <div class="cart-item-cell cart-item-action">
+                <span>Action</span>
+            </div>
+        </div>
+        <div class="cart-item-row" *ngFor="let cart of cartList;let i = index">
+            <div class="cart-item-cell cart-item-product">
+                <div class="cart-item-thumbnail">
+                    <img src="{{cart.product.volumeInfo.imageLinks?.thumbnail}}" onError="this.onerror=null;this.src='https://cdn.browshot.com/static/images/not-found.png';"
+                        alt="img not found" />
+                </div>
+                <div class="cart-item-info">
+                    <div class="cart-item-brand">{{cart.product.volumeInfo.title}}</div>
+                    <!-- <div class="cart-item-title">{{cart.product.title}}</div> -->
+                </div>
+            </div>
+            <div class="cart-item-cell cart-item-quantity">
+                <quantity-control [quantity]="cart.quantity" (onChange)="changeQuantity(cart,$event)"></quantity-control>
+            </div>
+            <div class="cart-item-cell cart-item-total">
+                <div class="item-price">
+                    {{cart.quantity*cart.product.saleInfo?.retailPrice?.amount | currency :'USD':true }}
+                </div>
+            </div>
+            <div class="cart-item-cell cart-item-action">
+                <div class="item-remove" (click)="removeFromCart(i)">X</div>
+            </div>
+        </div>
+        <div class="row cart-total">
+            <div class="col-lg-offset-6">
+                <div class="cart-total-row row">
+                    <div class="col-md-6 cart-total-label">
+                        Cart overview
+                    </div>
+                    <div class="col-md-6 cart-total-value"></div>
+                </div>
+                <div class="cart-total-row row">
+                    <div class="col-md-6 cart-total-label">
+                        subtotal
+                    </div>
+                    <div class="col-md-6 cart-total-value">
+                        {{totalPrice | currency :'USD':true}}
+                    </div>
+                </div>
+                <div class="cart-total-row row">
+                    <div class="col-md-6 cart-total-label">
+                        total
+                    </div>
+                    <div class="col-md-6 cart-total-value cart-total-price">
+                        {{totalPrice | currency :'USD':true}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-buttons">
+            <div class="continue-shopping">
+                <a routerLink="/">continue shopping</a>
+            </div>
+            <button type="button" class="btn btn-primary checkout-button right-align" (click)="checkout(template)">Checkout ({{totalPrice | currency :'USD':true}})</button>
+        </div>
+    </div>
+    <div class="cart-page-content" *ngIf="cartList.length == 0">
+        <h4>Your cart is empty.</h4>
+        <a routerLink="/">Go shopping</a>
+    </div>
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Order Successful!</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class=" imageContainer modal-body">
+            <img class="imageContainer" src="assets/images/deliver.png">
+        </div>
+        <div class=" product-details">
+            <a >Your order will soon be delivered to you!</a>
+        </div>
+        <div class="buttoncontainer"><button type="button" class="btn btn-primary" (click)="returnShop()">Continue shopping</button></div> 
+    </ng-template>
+</div>

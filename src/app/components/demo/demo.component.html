@@ -1,0 +1,14 @@
+<p>
+  demo works!
+</p>
+<ul *ngFor="let user of users">
+  <li>{{user.name}}</li>
+  <li><img src="{{user.picture}}" width="50px"></li>
+</ul>
+
+<ul *ngFor="let book of books">
+  <li>{{book.volumeInfo.title}}</li>
+  <li>Authors: <span *ngFor="let author of book.volumeInfo.authors; let last = last">{{author}}{{last?'': ', '}}</span></li>
+  <li><img src="{{book.volumeInfo.imageLinks.thumbnail}}"></li>
+  <li>{{book.saleInfo.saleability === 'NOT_FOR_SALE' ? '' : '$'}}{{book.saleInfo?.retailPrice?.amount || 'Not for sale'}}</li>
+</ul>

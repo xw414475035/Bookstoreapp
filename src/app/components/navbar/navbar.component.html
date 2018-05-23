@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">
+        <img src="../../favicon.ico" width="30" height="30" alt="">
+          | Warriors Book Store
+    </a>
+    <div class="collapse navbar-collapse ">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/checkout">
+                    <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                    <span *ngIf="cartList?.length > 0" class="cart-num">{{cartList.length}}</span>
+                </a>
+            </li>
+        </ul>
+        <form class="form-inline seardiv my-2 my-lg-0">
+            <input type="search" #search id="search" class="form-control mr-sm-2" placeholder="Search Books">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="OnSearch(search.value)">Search</button>
+        </form>
+        <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link point" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log in</a>
+            </li>
+        </ul>
+        <form *ngIf="auth.isAuthenticated()" class="form-inline ">
+            <div class="btn-group" dropdown>
+                <span class="point" dropdownToggle aria-controls="dropdown-basic">
+                    <img src="{{auth.userProfile?.picture}}" width="40px" height="40px" class="rounded-circle inline">
+                    <span class="nav-link inline">{{auth.userProfile?.name}}</span>
+                </span>
+                <ul id="dropdown-split" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+                    <li role="menuitem">
+                        <a class="dropdown-item" [routerLink]="['/myprofile']">View My Profile</a>
+                    </li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem">
+                        <a class="dropdown-item" href="/" (click)="auth.logout()">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</nav>

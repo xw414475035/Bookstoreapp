@@ -1,0 +1,151 @@
+
+.layout-container {
+    max-width: 1140px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.btn-group{
+    margin-left: 6%;
+    margin-top: 3%;
+}
+.card{
+    float: left;
+    margin-right: 0%;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+.list-group-ite{
+    font-size: 1px;
+    margin-left: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 130px;
+}
+
+.product-grid {
+    
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-right: 0%;
+    
+}
+
+.product-image {
+    height: 180px; 
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container:hover .product-image {
+    opacity: 0.3;
+    background-size: 120%;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.overlay .button {
+    width: 160px;
+    line-height: 38px;
+}
+
+.overlay .button:first-child {
+    margin-bottom: 2em;
+}
+
+.product-details {
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 20%;
+    margin-top: 30%;
+  
+
+}
+
+.product-brand {
+    display: block;
+    margin: .5em 0;
+    color: #7d7d7d;
+}
+
+.product-title {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-size: 1em;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: Roboto;
+}
+
+.product-price {
+    font-size: 1.14286em;
+    color: #9f9f9f;
+    font-family: Playfair Display;
+}
+
+.product-price {
+    font-size: 1.14286em;
+    color: #6e7e94;
+    font-family: Playfair Display;
+}
+
+.btn-success {
+    background-color: #7d7d7d;
+    border: 0ch;
+}
+
+
+.buttoncontainer {
+    margin-left: 45%;
+    margin-top: 5%;
+}
+
+.Contentcontainer {
+    margin-left: 28%;
+    margin-top: 5%;
+}
+
+.background-image-detail {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 25%;
+    border: 1px solid #000;
+    width: 60%;
+}
+
+.product-image-detail {
+    width: 90%;
+    height: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 30%;
+    padding-bottom: 55%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 767px) {
+    .header-block {
+        width: 100%;
+    }
+}
